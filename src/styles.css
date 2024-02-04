@@ -1,1 +1,28 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'normalize.css';
+
+/* DEBUG CLASSES */
+
+* {
+    outline: 1px solid red;
+}
+
+.debug {
+    outline: 4px solid blue;
+}
+
+.debug2 {
+    outline: 4px solid green;
+}
+
+.debug3 {
+    outline: 4px solid pink;
+}
+
+/* body {
+  background-color: #f7f111;
+} */
