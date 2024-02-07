@@ -5,13 +5,13 @@
 
 @import 'normalize.css';
 
-/* DEBUG CLASSES */
+/* @import url('https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap') */
 
-* {
+.debug {
     outline: 1px solid red;
 }
 
-.debug {
+.debug1 {
     outline: 4px solid blue;
 }
 
@@ -23,6 +23,30 @@
     outline: 4px solid pink;
 }
 
+.noselection {
+    user-select: none;
+}
+
 /* body {
-  background-color: #f7f111;
+  
 } */
+
+body {
+    background-color: #f1f7f7;
+    /* font-family: input-sans, sans-serif;
+    font-style: normal;
+    font-weight: 600; */
+
+    /* font-family: courier-prime, monospace;
+    font-style: normal;
+    font-weight: 600; */
+
+    /* font-family: ibm-plex-mono, sans-serif;
+    font-style: normal;
+    font-weight: 600; */
+
+    font-family: "Podkova", serif;
+    font-size: 1.08rem;
+    font-weight: 600;
+    font-style: normal;
+}
