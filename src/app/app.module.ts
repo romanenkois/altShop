@@ -15,6 +15,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { uk_UA } from 'ng-zorro-antd/i18n';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -22,6 +23,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { ProductsPageComponent } from './pages/products-page/products-page.component';
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { Error404PageComponent } from './pages/error404-page/error404-page.component';
+import { ProductFrameComponent } from './components/product-frame/product-frame.component';
 
 registerLocaleData(uk);
 
@@ -32,7 +34,8 @@ registerLocaleData(uk);
     HeaderComponent,
     ProductsPageComponent,
     ProductPageComponent,
-    Error404PageComponent
+    Error404PageComponent,
+    ProductFrameComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +43,9 @@ registerLocaleData(uk);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    
     NzMenuModule,
+    NzDropDownModule,
     
     MatToolbarModule,
     MatIconModule,
