@@ -15,6 +15,8 @@ export class BridgeService {
   }
 
   getProductData(id: string): Observable<any> {
+    // console.log(`${this.API_BASE_URL}/products/${id}`);
+    // console.log(this.http.get(`${this.API_BASE_URL}/products/${id}`));
     return this.http.get(`${this.API_BASE_URL}/products/${id}`);
   }
 
