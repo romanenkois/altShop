@@ -9,18 +9,23 @@ import { ActivatedRoute } from '@angular/router';
   ]
 })
 export class ProductPageComponent {
-  product: any | undefined;
+  product: any | undefined = [];
   constructor(private BridgeService: BridgeService, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.BridgeService.getProductData("6589bb0e5deba33acc975e6c").subscribe((data:any) => {  
+    this.route.queryParams.subscribe(params => {
+      const productId = params['productId'];
 
-      this.product = data;
+      this.BridgeService.getProductData(productId).subscribe((data:any) => {  
 
-      this.BridgeService.getImage(this.product.image).subscribe((data:any) => {
-        this.product.image = data;
+        this.product = data;
+  
+        this.BridgeService.getImage(this.product.image).subscribe((data:any) => {
+          this.product.image = data;
+        });
       });
     });
+    
 
     // this.route.queryParams.subscribe(params => {
     //   console.log(params['productId']);

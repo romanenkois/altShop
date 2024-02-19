@@ -29,10 +29,6 @@ export class ProductsPageComponent {
     this.onResize();
   }
 
-  writeToConsole(input: any) {
-    console.log(input);
-  }
-
   ngOnInit() {
     this.BridgeService.getProductsData().subscribe((data:any) => {  
       this.productsData = data;

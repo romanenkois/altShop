@@ -1,48 +1,54 @@
 <app-header></app-header>
 <div style="display: none;">
-    фільтр
+    фільтр такий типу
 </div>
 <div>
     <div>
-        <button
-        class="m-1"
-        >
-            більше фільтрів
-        </button>
+        <span>
+            <button
+            class="m-1"
+            >
+                фільтри
+            </button>
+        </span>
+        <span>
+            <span>
+                <p>сортування</p>
+            </span>
+            <span>
+                <button
+                class="m-1"
+                >
+                    за назвою
+                </button>
+                <button
+                class="m-1"
+                >
+                    за ціною
+                </button>
+                <button
+                class="m-1"
+                >
+                    за попул-стю
+                </button>
 
-        <button
-        class="m-1"
-        (click)="writeToConsole(filter)"
-        >
-            за назвою
-        </button>
-        <button
-        class="m-1"
-        >
-            за ціною
-        </button>
-        <button
-        class="m-1"
-        (click)="displayProductsData=[]"
-        >
-            за попул-стю
-        </button>
-
-        <button
-        class="m-1"
-        nz-dropdown [nzDropdownMenu]="menu">
-        к-сть колонок
-        </button>
-        <nz-dropdown-menu #menu="nzDropdownMenu">
-            <ul nz-menu>
-                <li nz-menu-item (click)="columns=1">1</li>
-                <li nz-menu-item (click)="columns=2">2</li>
-                <li nz-menu-item (click)="columns=3">3</li>
-                <li nz-menu-item (click)="columns=4">4</li>
-                <li nz-menu-item (click)="columns=5">5</li>
-                <li nz-menu-item (click)="columns=6">6</li>
-            </ul>
-        </nz-dropdown-menu>
+                <button
+                class="m-1"
+                nz-dropdown [nzDropdownMenu]="menu">
+                к-сть колонок
+                </button>
+                <nz-dropdown-menu #menu="nzDropdownMenu">
+                    <ul nz-menu>
+                        <li nz-menu-item (click)="columns=1">1</li>
+                        <li nz-menu-item (click)="columns=2">2</li>
+                        <li nz-menu-item (click)="columns=3">3</li>
+                        <li nz-menu-item (click)="columns=4">4</li>
+                        <li nz-menu-item (click)="columns=5">5</li>
+                        <li nz-menu-item (click)="columns=6">6</li>
+                    </ul>
+                </nz-dropdown-menu>
+            </span>
+        </span>
     </div>
 
     <div

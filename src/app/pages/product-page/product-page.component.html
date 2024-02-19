@@ -1,8 +1,10 @@
 <app-header></app-header>
-
-<p class="bg-primary">сатаатаджі продукт 1</p>
 <div>
-    <img [src]="product.image" [alt]="product.image"/>
+    <img [src]="product.image" alt="зображення таке типу"/>
     <p>{{product.name}}</p>
-
+    <p>{{product.price}} грн.</p>
+    <p>{{product.description}}</p>
+    <button
+    class="bg-primary"
+    >додати в кошик</button>
 </div>
