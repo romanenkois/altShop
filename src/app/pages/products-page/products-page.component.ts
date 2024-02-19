@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BridgeService } from 'src/app/services/bridge.service';
 import { HostListener } from "@angular/core";
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-products-page',
@@ -16,6 +17,7 @@ export class ProductsPageComponent {
   screenHeight: number = 0;
   screenWidth: number = 0;
 
+  filter: string = '';
 
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -23,12 +25,32 @@ export class ProductsPageComponent {
     this.screenWidth = window.innerWidth;
   }
 
-  constructor(private BridgeService: BridgeService) { this.onResize();}
+  constructor(private BridgeService: BridgeService, private route: ActivatedRoute) { 
+    this.onResize();
+  }
+
+  writeToConsole(input: any) {
+    console.log(input);
+  }
 
   ngOnInit() {
     this.BridgeService.getProductsData().subscribe((data:any) => {  
       this.productsData = data;
-      this.displayProductsData = this.productsData;
+
+      this.route.queryParams.subscribe(params => {
+        this.filter = params['filter'] || '';
+        this.displayProductsData = [];
+
+        if (this.filter != '') {
+          for (let i = 0; i < this.productsData.length; i++) {
+            if (this.productsData[i].type === this.filter) {
+              this.displayProductsData.push(this.productsData[i]);
+            }
+          }
+        } else {
+          this.displayProductsData = this.productsData;
+        }
+      });
     });
 
     if (this.screenWidth < 500) {

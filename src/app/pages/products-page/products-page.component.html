@@ -1,54 +1,66 @@
 <app-header></app-header>
 <div style="display: none;">
-  фільтр
+    фільтр
 </div>
 <div>
-  <div>
-    <button>
-      більше фільтрів
-    </button>
-
-    <button>
-      за назвою
-    </button>
-    <button>
-      за ціною
-    </button>
-    <button (click)="displayProductsData=[]">
-      за попул-стю
-    </button>
-
-    <button nz-dropdown [nzDropdownMenu]="menu">
-      к-сть колонок
-    </button>
-    <nz-dropdown-menu #menu="nzDropdownMenu">
-        <ul nz-menu>
-            <li nz-menu-item (click)="columns=1">1</li>
-            <li nz-menu-item (click)="columns=2">2</li>
-            <li nz-menu-item (click)="columns=3">3</li>
-            <li nz-menu-item (click)="columns=4">4</li>
-            <li nz-menu-item (click)="columns=5">5</li>
-            <li nz-menu-item (click)="columns=6">6</li>
-        </ul>
-    </nz-dropdown-menu>
-  </div>
-
-  <div
-  style="overflow:scroll; height:100%;"
-  class="grid"
-  [ngClass]="[
-      columns === 1 ? 'grid-cols-1' : '',
-      columns === 2 ? 'grid-cols-2' : '',
-      columns === 3 ? 'grid-cols-3' : '',
-      columns === 4 ? 'grid-cols-4' : '',
-      columns === 5 ? 'grid-cols-5' : '',
-      columns === 6 ? 'grid-cols-6' : '']"
-  >
-    <div *ngFor="let product of displayProductsData">
-        <app-product-frame class="w-full"
-        [product]="product"
+    <div>
+        <button
+        class="m-1"
         >
-        </app-product-frame>
+            більше фільтрів
+        </button>
+
+        <button
+        class="m-1"
+        (click)="writeToConsole(filter)"
+        >
+            за назвою
+        </button>
+        <button
+        class="m-1"
+        >
+            за ціною
+        </button>
+        <button
+        class="m-1"
+        (click)="displayProductsData=[]"
+        >
+            за попул-стю
+        </button>
+
+        <button
+        class="m-1"
+        nz-dropdown [nzDropdownMenu]="menu">
+        к-сть колонок
+        </button>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+            <ul nz-menu>
+                <li nz-menu-item (click)="columns=1">1</li>
+                <li nz-menu-item (click)="columns=2">2</li>
+                <li nz-menu-item (click)="columns=3">3</li>
+                <li nz-menu-item (click)="columns=4">4</li>
+                <li nz-menu-item (click)="columns=5">5</li>
+                <li nz-menu-item (click)="columns=6">6</li>
+            </ul>
+        </nz-dropdown-menu>
     </div>
-  </div>
+
+    <div
+    style="overflow:scroll; height:100%;"
+    class="grid"
+    [ngClass]="[
+        columns === 1 ? 'grid-cols-1' : '',
+        columns === 2 ? 'grid-cols-2' : '',
+        columns === 3 ? 'grid-cols-3' : '',
+        columns === 4 ? 'grid-cols-4' : '',
+        columns === 5 ? 'grid-cols-5' : '',
+        columns === 6 ? 'grid-cols-6' : '']"
+    >
+        <div *ngFor="let product of displayProductsData">
+            <app-product-frame 
+            [product]="product"
+            >
+            </app-product-frame>
+        </div>
+    </div>
 </div>

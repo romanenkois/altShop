@@ -1,5 +1,8 @@
-<div *ngIf="product">
-    <div>
+<div *ngIf="product" class="w-full m-2">
+    <div
+    class="w-full debug2"
+    (click)="navigateToProductPage(product._id)"
+    >
         <img id="placeHolderImage" [src]="imagePlaceHolder512" alt="product image">
         <img [src]="product.image" alt="product image">
     </div>

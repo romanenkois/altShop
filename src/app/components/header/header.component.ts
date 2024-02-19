@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Renderer2, ElementRef } from '@angular/core';
+import {Renderer2} from '@angular/core';
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
@@ -14,9 +14,8 @@ import { Router } from '@angular/router';
 export class HeaderComponent {
   isOutlineActive = true;
 
-  constructor(private renderer: Renderer2, private el: ElementRef, private router: Router) {}
+  constructor(private renderer: Renderer2, private router: Router) {}
   
-  // Debug feauture to show the outline of all elements
   toogleDebugOutline() {
     this.isOutlineActive = !this.isOutlineActive;
     this.applyOutlineStyle(document.body);
