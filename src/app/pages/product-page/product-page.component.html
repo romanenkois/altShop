@@ -1,6 +1,11 @@
 <app-header></app-header>
 <div>
-    <img [src]="product.image" alt="зображення таке типу"/>
+    <nz-carousel [nzEffect]="effect">
+        <div *ngFor="let source of product.images" nz-carousel-content>
+            <img [src]="source"  alt="зображення {{product.name}} таке типу"/>
+        </div>
+    </nz-carousel>
+    
     <p>{{product.name}}</p>
     <p>{{product.price}} грн.</p>
     <p>{{product.description}}</p>

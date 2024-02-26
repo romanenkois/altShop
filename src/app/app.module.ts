@@ -16,6 +16,7 @@ import { NZ_I18N } from 'ng-zorro-antd/i18n';
 import { uk_UA } from 'ng-zorro-antd/i18n';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
+import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -46,6 +47,7 @@ registerLocaleData(uk);
     
     NzMenuModule,
     NzDropDownModule,
+    NzCarouselModule,
     
     MatToolbarModule,
     MatIconModule,
