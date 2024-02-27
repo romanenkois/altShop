@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {Renderer2} from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-header',
   templateUrl: 'header.component.html',
@@ -12,9 +13,10 @@ import { Router } from '@angular/router';
   ]
 })
 export class HeaderComponent {
+  cartItems:any | undefined = [] ;
   isOutlineActive = true;
 
-  constructor(private renderer: Renderer2, private router: Router) {}
+  constructor(private CartService: CartService,private renderer: Renderer2, private router: Router) {}
   
   toogleDebugOutline() {
     this.isOutlineActive = !this.isOutlineActive;
@@ -34,7 +36,6 @@ export class HeaderComponent {
     }
   }
 
-  // Method to navigate the user to the products page with or without parameters
   navigateUserToProducts(filter: string | undefined): void {
     if (!filter) {
       this.router.navigate(['./products']);
@@ -48,5 +49,6 @@ export class HeaderComponent {
     if (this.isOutlineActive) {
       this.applyOutlineStyle(document.body);
     }
+    this.cartItems = this.CartService.getCart();
   }
 }

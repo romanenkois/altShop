@@ -1,79 +1,22 @@
-<!-- <ul nz-menu nzMode="horizontal">
-    <li nz-menu-item nzSelected>
-        <span nz-icon nzType="mail"></span>
-        Navigation One
-    </li>
-
-    <li nz-menu-item nzDisabled>
-        <span nz-icon nzType="appstore"></span>
-        Navigation Two
-    </li>
-
-    <li nz-submenu nzTitle="Navigation Three - Submenu" nzIcon="setting">
-        <ul>
-        <li nz-menu-group nzTitle="Item 1">
-            <ul>
-            <li nz-menu-item>Option 1</li>
-            <li nz-menu-item>Option 2</li>
-            </ul>
-        </li>
-        <li nz-menu-group nzTitle="Item 2">
-            <ul>
-            <li nz-menu-item>Option 3</li>
-            <li nz-menu-item>Option 4</li>
-            <li nz-submenu nzTitle="Sub Menu">
-                <ul>
-                <li nz-menu-item nzDisabled>Option 5</li>
-                <li nz-menu-item>Option 6</li>
-                </ul>
-            </li>
-            <li nz-submenu nzDisabled nzTitle="Disabled Sub Menu">
-                <ul>
-                <li nz-menu-item>Option 5</li>
-                <li nz-menu-item>Option 6</li>
-                </ul>
-            </li>
-            </ul>
-        </li>
-        </ul>
-    </li>
-
-    <li nz-menu-item>
-        <a href="https://ng.ant.design" target="_blank" rel="noopener noreferrer">Navigation Four - Link</a>
-    </li>
-</ul> -->
-
-<!-- <ul nz-menu nzMode="horizontal">
-    <li nz-menu-item>Menu 1</li>
-    <li nz-menu-item>Menu 2</li>
-    <li nz-submenu nzTitle="SubMenu Title">
-      <ul>
-        <li nz-menu-item>SubMenu Item 1</li>
-        <li nz-menu-item>SubMenu Item 2</li>
-        <li nz-menu-item>SubMenu Item 3</li>
-      </ul>
-    </li>
-</ul> -->
-
 <mat-toolbar>
     <button class="m-2" [routerLink]="['/home']" routerLinkActive="router-link-active">
         <span>altShop</span>
     </button>
 
     <button class="m-2">
-            <a nz-dropdown [nzDropdownMenu]="menu">
-                шмотки
-                <span nz-icon nzType="down"></span>
-            </a>
-            <nz-dropdown-menu #menu="nzDropdownMenu">
-                <ul nz-menu>
-                    <li nz-menu-item (click)="navigateUserToProducts('')">Всі шмотки</li>
+        <a nz-dropdown [nzDropdownMenu]="clothesMenu">
+            шмотки
+            <span nz-icon nzType="down"></span>
+        </a>
+        <nz-dropdown-menu #clothesMenu="nzDropdownMenu">
+            <ul nz-menu>
+                <li nz-menu-item (click)="navigateUserToProducts('')">Всі шмотки</li>
 
-                    <li nz-menu-item (click)="navigateUserToProducts('zipka')">зіпки</li>
-                    <li nz-menu-item (click)="navigateUserToProducts('hoodie')">худі</li>
-                    <li nz-menu-item (click)="navigateUserToProducts('pants')">штани</li>
-                </ul>
-            </nz-dropdown-menu>
+                <li nz-menu-item (click)="navigateUserToProducts('zipka')">зіпки</li>
+                <li nz-menu-item (click)="navigateUserToProducts('hoodie')">худі</li>
+                <li nz-menu-item (click)="navigateUserToProducts('pants')">штани</li>
+            </ul>
+        </nz-dropdown-menu>
     </button>
     
     <span class="header-spacer"></span>
@@ -81,8 +24,44 @@
     <button
     mat-icon-button class="m-2"
     >
-        <mat-icon>shopping_cart</mat-icon>
+        <mat-icon
+        nz-dropdown nzTrigger="click" [nzDropdownMenu]="cartMenu"
+        >shopping_cart</mat-icon>
+
+        <nz-dropdown-menu #cartMenu="nzDropdownMenu">
+            <ul nz-menu>
+                <li
+                nz-menu-item
+                *ngIf="cartItems.length != []"
+                >
+                    <ul nz-menu>
+                        <li
+                        nz-menu-item 
+                        *ngFor="let item of cartItems">
+                            {{item.name}}
+                        </li>
+                    </ul>
+                </li>
+                <li
+                *ngIf="cartItems.length != []"
+                nz-menu-item
+                [routerLink]="['/cart']"
+                >
+                    оплатити
+                </li>
+                <li
+                nz-menu-item
+                *ngIf="cartItems.length == []"
+                >
+                    <p>схоже ви ще не додали нічого в корзину</p>
+                    <button 
+                    class="bg-primary w-full"
+                    [routerLink]="['/products']">подивитися шмотки</button>
+                </li>
+            </ul>
+        </nz-dropdown-menu>
     </button>
+    
     <button
     mat-icon-button class="m-2"
     (click)="toogleDebugOutline()">

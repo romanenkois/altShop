@@ -5,7 +5,11 @@
 
 @import 'normalize.css';
 
-/* @import url('https://fonts.googleapis.com/css2?family=Podkova:wght@400..800&display=swap') */
+:root {
+    --main-color: #ffdd00;
+    --gray-color: #f3f3f3;
+    --dark-gray-color: #333333;
+}
 
 .debug {
     outline: 1px solid red;

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { BridgeService } from 'src/app/services/bridge.service';
 import { ActivatedRoute } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-page',
@@ -9,17 +10,11 @@ import { ActivatedRoute } from '@angular/router';
     `
       [nz-carousel-content] {
         text-align: center;
-        height: 160px;
-        line-height: 160px;
-        background: #364d79;
-        color: #fff;
+        height: 500px;
+        line-height: 500px;
+        background: var(--main-color);
+        color: #000000;
         overflow: hidden;
-      }
-
-      h3 {
-        color: #fff;
-        margin-bottom: 0;
-        user-select: none;
       }
     `
   ]
@@ -27,9 +22,13 @@ import { ActivatedRoute } from '@angular/router';
 
 export class ProductPageComponent {
   product: any | undefined = [];
-  constructor(private BridgeService: BridgeService, private route: ActivatedRoute) { }
+  constructor(private BridgeService: BridgeService, private CartService: CartService, private route: ActivatedRoute) { }
 
   effect = 'scrollx';
+
+  addToCart(product: any) {
+    this.CartService.addToCart(product);
+  }
   
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -44,13 +43,10 @@ export class ProductPageComponent {
         });
 
         for (let i = 0; i < this.product.images.length; i++) {
-          console.log(this.product.images[i]);
           this.BridgeService.getImage(this.product.images[i]).subscribe((data:any) => {
             try {
               const parsedData = JSON.parse(data);
-              const value: string = parsedData.image;
-              console.log(value);
-              this.product.images[i] = value;
+              this.product.images[i] = parsedData.image;
             } catch (error) {
               console.error("Error parsing JSON:", error);
             }
