@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {Renderer2} from '@angular/core';
 import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
@@ -13,6 +13,8 @@ import { CartService } from 'src/app/services/cart.service';
   ]
 })
 export class HeaderComponent {
+  @Input() renderCartButton: boolean | undefined = true;
+
   cartItems:any | undefined = [] ;
   isOutlineActive = true;
 

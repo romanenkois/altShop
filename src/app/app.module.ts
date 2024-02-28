@@ -25,6 +25,7 @@ import { ProductsPageComponent } from './pages/products-page/products-page.compo
 import { ProductPageComponent } from './pages/product-page/product-page.component';
 import { Error404PageComponent } from './pages/error404-page/error404-page.component';
 import { ProductFrameComponent } from './components/product-frame/product-frame.component';
+import { CartPageComponent } from './pages/cart-page/cart-page.component';
 
 registerLocaleData(uk);
 
@@ -36,7 +37,8 @@ registerLocaleData(uk);
     ProductsPageComponent,
     ProductPageComponent,
     Error404PageComponent,
-    ProductFrameComponent
+    ProductFrameComponent,
+    CartPageComponent
   ],
   imports: [
     BrowserModule,

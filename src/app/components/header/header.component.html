@@ -23,6 +23,7 @@
 
     <button
     mat-icon-button class="m-2"
+    *ngIf="renderCartButton"
     >
         <mat-icon
         nz-dropdown nzTrigger="click" [nzDropdownMenu]="cartMenu"
