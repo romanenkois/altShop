@@ -1,10 +1,10 @@
-<div *ngIf="product" class="w-full m-2">
+<div *ngIf="product" class="w-full">
     <div
     class="w-full"
     (click)="navigateToProductPage(product._id)"
     >
-        <img id="placeHolderImage" [src]="imagePlaceHolder512" alt="product image">
-        <img [src]="product.image" alt="product image">
+        <img id="placeHolderImage" [src]="imagePlaceHolder512" alt="зображення {{product.name}} типу">
+        <img [src]="product.image" alt="зображення {{product.name}} таке типу">
     </div>
     <div>
         <p>{{product.name}}</p>

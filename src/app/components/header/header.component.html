@@ -1,5 +1,5 @@
-<mat-toolbar>
-    <button class="m-2" [routerLink]="['/home']" routerLinkActive="router-link-active">
+<mat-toolbar class="bg-primary">
+    <button class="m-2" [routerLink]="['/home']" routerLinkActive="router-link-active" class="bg-primary">
         <span>altShop</span>
     </button>
 
@@ -10,8 +10,8 @@
         </a>
         <nz-dropdown-menu #clothesMenu="nzDropdownMenu">
             <ul nz-menu>
-                <li nz-menu-item (click)="navigateUserToProducts('')">Всі шмотки</li>
-
+                <li nz-menu-item (click)="navigateUserToProducts('')" class="font-extrabold">Всі шмотки</li>
+                <li nz-menu-divider ></li>
                 <li nz-menu-item (click)="navigateUserToProducts('zipka')">зіпки</li>
                 <li nz-menu-item (click)="navigateUserToProducts('hoodie')">худі</li>
                 <li nz-menu-item (click)="navigateUserToProducts('pants')">штани</li>
@@ -34,6 +34,7 @@
                 <li
                 nz-menu-item
                 *ngIf="cartItems.length != []"
+                class="p-0"
                 >
                     <ul nz-menu>
                         <li
@@ -43,19 +44,30 @@
                         </li>
                     </ul>
                 </li>
+                <li *ngIf="cartItems.length != []" nz-menu-divider></li>
+
                 <li
                 *ngIf="cartItems.length != []"
                 nz-menu-item
                 [routerLink]="['/cart']"
+                class="m-1"
                 >
                     оплатити
                 </li>
                 <li
-                nz-menu-item
                 *ngIf="cartItems.length == []"
+                nz-menu-item
+                class="m-1"
                 >
-                    <p>схоже ви ще не додали нічого в корзину</p>
+                    схоже ви ще не додали нічого в корзину
+                </li>
+                <li
+                *ngIf="cartItems.length == []"
+                nz-menu-item
+                class="m-1  flex"
+                >
                     <button 
+                    
                     class="bg-primary w-full"
                     [routerLink]="['/products']">подивитися шмотки</button>
                 </li>

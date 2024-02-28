@@ -16,7 +16,7 @@ export class HeaderComponent {
   @Input() renderCartButton: boolean | undefined = true;
 
   cartItems:any | undefined = [] ;
-  isOutlineActive = true;
+  isOutlineActive = false;
 
   constructor(private CartService: CartService,private renderer: Renderer2, private router: Router) {}
   

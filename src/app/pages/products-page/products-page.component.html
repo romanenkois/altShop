@@ -62,7 +62,7 @@
         columns === 5 ? 'grid-cols-5' : '',
         columns === 6 ? 'grid-cols-6' : '']"
     >
-        <div *ngFor="let product of displayProductsData">
+        <div *ngFor="let product of displayProductsData" class="m-1">
             <app-product-frame 
             [product]="product"
             >
