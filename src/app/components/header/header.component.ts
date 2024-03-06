@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import {Renderer2} from '@angular/core';
 import { Router } from '@angular/router';
+import { Cart, CartProduct } from 'src/app/models/cart.model';
 import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-header',
@@ -15,7 +16,9 @@ import { CartService } from 'src/app/services/cart.service';
 export class HeaderComponent {
   @Input() renderCartButton: boolean | undefined = true;
 
-  cartItems:any | undefined = [] ;
+  cart: Cart = {products: []};
+  dataSource: Array<CartProduct> = [];
+
   isOutlineActive = false;
 
   constructor(private CartService: CartService,private renderer: Renderer2, private router: Router) {}
@@ -51,6 +54,11 @@ export class HeaderComponent {
     if (this.isOutlineActive) {
       this.applyOutlineStyle(document.body);
     }
-    this.cartItems = this.CartService.getCart();
+
+    this.dataSource = this.cart.products;
+    this.CartService.$Cart.subscribe((_cart: Cart) => {
+      this.cart = _cart;
+      this.dataSource = this.cart.products;
+    })
   }
 }

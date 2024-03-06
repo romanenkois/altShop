@@ -27,7 +27,7 @@ export class ProductPageComponent {
   effect = 'scrollx';
 
   addToCart(product: any) {
-    this.CartService.addToCart(product);
+    this.CartService.addToCart(product._id);
   }
   
   ngOnInit() {

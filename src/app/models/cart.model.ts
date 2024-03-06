@@ -3,6 +3,6 @@ export interface Cart {
 }
 
 export interface CartProduct {
-    id: number;
+    id: string;
     quantity: number;
 }
