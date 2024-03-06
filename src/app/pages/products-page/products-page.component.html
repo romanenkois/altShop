@@ -69,4 +69,11 @@
             </app-product-frame>
         </div>
     </div>
+    <div
+    *ngIf="displayProductsData.length === 0"
+    class="flex w-max h-max">
+        <p>
+            Схоже за цим фільтром нічого не знайдено
+        </p>
+    </div>
 </div>

@@ -1,5 +1,7 @@
 <app-header></app-header>
-<div>
+<div
+*ngIf="product != []"
+>
     <nz-carousel [nzEffect]="effect">
         <div *ngFor="let source of product.images" nz-carousel-content>
             <img [src]="source"  alt="зображення {{product.name}} таке типу"/>
@@ -13,4 +15,9 @@
     class="bg-primary"
     (click)="addToCart(product)"
     >додати в кошик</button>
+</div>
+<div
+*ngIf="product == []"
+>
+    <p>Схоже цього продукту не існує</p>
 </div>
