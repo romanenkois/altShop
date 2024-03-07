@@ -29,6 +29,7 @@ import { CartPageComponent } from './pages/cart-page/cart-page.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ProductFrameComponent } from './components/product-frame/product-frame.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CartProductComponent } from './components/cart-product/cart-product.component';
 
 registerLocaleData(uk);
 
@@ -42,7 +43,8 @@ registerLocaleData(uk);
     Error404PageComponent,
     ProductFrameComponent,
     CartPageComponent,
-    FooterComponent
+    FooterComponent,
+    CartProductComponent
   ],
   imports: [
     BrowserModule,

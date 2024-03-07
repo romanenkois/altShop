@@ -55,9 +55,10 @@ export class HeaderComponent {
       this.applyOutlineStyle(document.body);
     }
 
-    this.dataSource = this.cart.products;
     this.CartService.$Cart.subscribe((_cart: Cart) => {
       this.cart = _cart;
+
+      
       this.dataSource = this.cart.products;
     })
   }
