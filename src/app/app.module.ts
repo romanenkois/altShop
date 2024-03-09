@@ -15,6 +15,7 @@ import { NzMenuModule } from 'ng-zorro-antd/menu';
 import { NzDropDownModule } from 'ng-zorro-antd/dropdown';
 import { NzCarouselModule } from 'ng-zorro-antd/carousel';
 import { NzButtonModule } from 'ng-zorro-antd/button';
+import { NzGridModule } from 'ng-zorro-antd/grid';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -57,6 +58,7 @@ registerLocaleData(uk);
     NzDropDownModule,
     NzCarouselModule,
     NzButtonModule,
+    NzGridModule,
     
     MatToolbarModule,
     MatIconModule,

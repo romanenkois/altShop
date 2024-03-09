@@ -1,11 +1,22 @@
 <div
 *ngIf="cartProduct"
+nz-row
+style="max-height: 300px;
+        max-width: 300px;
+        "
 >
-    <div>
-        <img [src]="renderedCartProduct.image" alt="зображення">
+    <div nz-col nzSpan="8">
+        <img
+        class="p-0"
+        [src]="renderedCartProduct.image" alt="зображення">
     </div>
 
-    <div>
-        <p>{{renderedCartProduct.name}}</p>
+    <div nz-col nzSpan="16">
+        <p class="m-2">{{renderedCartProduct.name}}</p>
+        <span class="m-2">
+            <span class="p-2">{{cartProduct.quantity}} шт.</span>
+            <span class="p-2">{{renderedCartProduct.price*cartProduct.quantity}} грн. </span>
+            <span class="text-gray-900">{{renderedCartProduct.price}}</span>
+        </span>
     </div>
 </div>

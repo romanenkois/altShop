@@ -40,14 +40,16 @@
                         <li
                         nz-menu-item 
                         *ngFor="let product of cart.products">
-                            {{product.id}} {{product.quantity}}
+                            <app-cart-product
+                            [cartProduct]="product"
+                            ></app-cart-product>
                         </li>
                     </ul>
                 </li>
-                <li *ngIf="cart.products != []" nz-menu-divider></li>
+                <li *ngIf="cart.products.length > 0" nz-menu-divider></li>
 
                 <li
-                *ngIf="cart.products != []"
+                *ngIf="cart.products.length > 0"
                 nz-menu-item
                 [routerLink]="['/cart']"
                 class="m-1"
@@ -55,14 +57,14 @@
                     оплатити
                 </li>
                 <li
-                *ngIf="cart.products == []"
+                *ngIf="cart.products.length == 0"
                 nz-menu-item
                 class="m-1 noselection"
                 >
                     схоже ви ще не додали нічого в корзину
                 </li>
                 <li
-                *ngIf="cart.products == []"
+                *ngIf="cart.products.length == 0"
                 nz-menu-item
                 class="m-1  flex"
                 >
