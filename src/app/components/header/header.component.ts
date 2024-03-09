@@ -18,6 +18,7 @@ export class HeaderComponent {
 
   cart: Cart = {products: []};
 
+  debugMode: boolean = true;
   isOutlineActive = false;
 
   constructor(private CartService: CartService,private renderer: Renderer2, private router: Router) {}

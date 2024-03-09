@@ -10,11 +10,19 @@
         </a>
         <nz-dropdown-menu #clothesMenu="nzDropdownMenu">
             <ul nz-menu>
-                <li nz-menu-item (click)="navigateUserToProducts('')" class="font-extrabold">Всі шмотки</li>
+                <li nz-menu-item (click)="navigateUserToProducts('')" class="font-extrabold">ВСІ ШМОТКИ</li>
                 <li nz-menu-divider ></li>
-                <li nz-menu-item (click)="navigateUserToProducts('zipka')">зіпки</li>
+                <li nz-menu-item  (click)="navigateUserToProducts('zipka')">зіпки</li>
+                <li nz-menu-item  (click)="navigateUserToProducts('scarf')">шарфи</li>
+                <li nz-menu-item  (click)="navigateUserToProducts('pants')">штани</li>
+
+                <li nz-menu-item (click)="navigateUserToProducts('jacket')">куртки</li>
                 <li nz-menu-item (click)="navigateUserToProducts('hoodie')">худі</li>
-                <li nz-menu-item (click)="navigateUserToProducts('pants')">штани</li>
+                <li nz-menu-item (click)="navigateUserToProducts('tshirt')">футболки</li>
+                <li nz-menu-item (click)="navigateUserToProducts('shirt')">сорочки</li>
+                <li nz-menu-item (click)="navigateUserToProducts('sweater')">светри</li>
+                <li nz-menu-item (click)="navigateUserToProducts('cap')">кепки</li>
+                <li nz-menu-item (click)="navigateUserToProducts('bag')">шопери</li>
             </ul>
         </nz-dropdown-menu>
     </button>
@@ -79,7 +87,14 @@
     
     <button
     mat-icon-button class="m-2"
-    (click)="toogleDebugOutline()">
+    >
         <mat-icon>person</mat-icon>
+    </button>
+
+    <button
+    *ngIf="debugMode"
+    mat-icon-button class="m-2"
+    (click)="toogleDebugOutline()">
+        <mat-icon>settings</mat-icon>
     </button>
 </mat-toolbar>
