@@ -17,7 +17,7 @@ export class ProductsPageComponent {
   screenHeight: number = 0;
   screenWidth: number = 0;
 
-  filter: string = '';
+  filter: any = [];
 
   @HostListener('window:resize', ['$event'])
   onResize() {
@@ -35,6 +35,7 @@ export class ProductsPageComponent {
 
       this.route.queryParams.subscribe(params => {
         this.filter = params['filter'] || '';
+        console.log(this.filter);
         this.displayProductsData = [];
 
         if (this.filter != '') {
