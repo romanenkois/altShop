@@ -1,23 +1,36 @@
 <app-header></app-header>
 <div
 *ngIf="product != []"
+class="flex flex-row"
 >
-    <nz-carousel [nzEffect]="effect">
-        <div *ngFor="let source of product.images" nz-carousel-content>
-            <img [src]="source"  alt="зображення {{product.name}} таке типу"/>
-        </div>
-    </nz-carousel>
+    <div class="basis-full lg:basis-1/2">
+        <nz-carousel [nzEffect]="effect" class="flex">
+            <div *ngFor="let source of product.images" nz-carousel-content>
+                <img [src]="source"  alt="зображення {{product.name}} таке типу"/>
+            </div>
+
+            <div *ngIf="!product.images || !product.images[0]" nz-carousel-content>
+                <img [src]="product.image"  alt="зображення {{product.name}} таке типу"/>
+            </div>
+        </nz-carousel>
     
-    <p>{{product.name}}</p>
-    <p>{{product.price}} грн.</p>
-    <p>{{product.description}}</p>
-    <button
-    class="bg-primary"
-    (click)="addToCart(product)"
-    >додати в кошик</button>
+    </div>
+    
+    <div class="basis-full lg:basis-1/2 lg:bg-primary">
+        <p>{{product.name}}</p>
+        <p>{{product.price}} грн.</p>
+        <p>{{product.description}}</p>
+        <button
+        class="bg-primary"
+        (click)="addToCart(product)"
+        >додати в кошик</button>
+    </div>
 </div>
+
+
+<!-- проста відповідь якщо юзер попав на сторінку з продуктом, щодо якого API не може дати відповідь -->
 <div
 *ngIf="product == []"
 >
-    <p>Схоже цього продукту не існує</p>
+    <p>Схоже цього продукту не існує, чи виникла помилка на сервері</p>
 </div>

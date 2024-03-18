@@ -14,7 +14,6 @@ import { CartService } from 'src/app/services/cart.service';
   ]
 })
 export class HeaderComponent {
-  
   @Input() renderCartButton: boolean | undefined = true;
 
   cart: Cart = {products: []};

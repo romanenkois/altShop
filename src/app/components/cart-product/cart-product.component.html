@@ -17,7 +17,7 @@ style="max-height: 300px;
             <span class="p-1 text-base">{{renderedCartProduct.price*cartProduct.quantity}} грн. -</span>
             <span class="p-1 text-base">{{cartProduct.quantity}} шт.</span>
             
-            <span class="text-gray text-xs">{{renderedCartProduct.price}}/шт</span>
+            <span [title]="'ціна за одну одиницю товару'" class="text-gray text-xs">{{renderedCartProduct.price}}/шт</span>
         </span>
     </div>
 </div>
