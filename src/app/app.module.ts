@@ -31,7 +31,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { ProductFrameComponent } from './components/product-frame/product-frame.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { CartProductComponent } from './components/cart-product/cart-product.component';
-
 registerLocaleData(uk);
 
 @NgModule({
@@ -45,7 +44,7 @@ registerLocaleData(uk);
     ProductFrameComponent,
     CartPageComponent,
     FooterComponent,
-    CartProductComponent
+    CartProductComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,13 +52,13 @@ registerLocaleData(uk);
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    
+
     NzMenuModule,
     NzDropDownModule,
     NzCarouselModule,
     NzButtonModule,
     NzGridModule,
-    
+
     MatToolbarModule,
     MatIconModule,
     MatMenuModule

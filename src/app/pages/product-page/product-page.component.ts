@@ -6,18 +6,7 @@ import { CartService } from 'src/app/services/cart.service';
 @Component({
   selector: 'app-product-page',
   templateUrl: 'product-page.component.html',
-  styles: [
-    `
-      [nz-carousel-content] {
-        text-align: center;
-        height: 500px;
-        line-height: 500px;
-        background: var(--main-color);
-        color: #000000;
-        overflow: hidden;
-      }
-    `
-  ]
+  styleUrls: ['product-page.component.css']
 })
 
 export class ProductPageComponent {
@@ -29,15 +18,15 @@ export class ProductPageComponent {
   addToCart(product: any) {
     this.CartService.addToCart(product._id);
   }
-  
+
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
       const productId = params['productId'];
 
-      this.BridgeService.getProductData(productId).subscribe((data:any) => {  
+      this.BridgeService.getProductData(productId).subscribe((data:any) => {
 
         this.product = data;
-  
+
         this.BridgeService.getImage(this.product.image).subscribe((data:any) => {
           this.product.image = data;
         });
@@ -53,6 +42,6 @@ export class ProductPageComponent {
           });
         }
       });
-    });  
+    });
   }
 }
