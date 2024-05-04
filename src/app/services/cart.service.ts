@@ -7,8 +7,10 @@ import { Cart, CartProduct } from '../models/cart.model';
 })
 export class CartService {
   $Cart = new BehaviorSubject<Cart>({products: []});
-   
+  
   constructor() { }
+
+  
 
   addToCart(productId: string): void {
     const products = [...this.$Cart.value.products];
