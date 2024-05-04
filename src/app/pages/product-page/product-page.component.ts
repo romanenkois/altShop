@@ -8,10 +8,15 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: 'product-page.component.html',
   styles: [
     `
+      nz-carousel {
+        max-height: 400px;
+        max-width: 700px;
+      }
+
       [nz-carousel-content] {
         text-align: center;
-        height: 500px;
-        line-height: 500px;
+        max-height: 1000px;
+        line-height: 1000px;
         background: var(--main-color);
         color: #000000;
         overflow: hidden;
